@@ -14,10 +14,10 @@
         </RouterLink>
       </li>
       <li v-if='user'>
-        <a href="index.html" class="nav-link text-white">
+        <RouterLink :to="{name: 'myVideos'}" class="nav-link text-white">
           <i class="fa-solid fa-video"></i>
           My videos
-        </a>
+        </RouterLink>
       </li>
       <li v-if='user'>
         <RouterLink :to="{name: 'profile'}" class="nav-link text-white">

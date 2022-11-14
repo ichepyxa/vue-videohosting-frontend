@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import CreateVideoView from '../views/CreateVideoView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import VideoView from '../views/VideoView.vue'
+import MyVideosView from '../views/MyVideosView.vue'
 import { getUserProfile } from '../use/functions'
 
 const router = createRouter({
@@ -26,6 +27,22 @@ const router = createRouter({
 			component: LoginView,
 		},
 		{
+			path: '/profile',
+			name: 'profile',
+			component: ProfileView,
+			meta: {
+				requiredAuth: true,
+			},
+		},
+		{
+			path: '/my-videos',
+			name: 'myVideos',
+			component: MyVideosView,
+			meta: {
+				requiredAuth: true,
+			},
+		},
+		{
 			path: '/video/create',
 			name: 'createVideo',
 			component: CreateVideoView,
@@ -34,9 +51,9 @@ const router = createRouter({
 			},
 		},
 		{
-			path: '/profile',
-			name: 'profile',
-			component: ProfileView,
+			path: '/video/:id/edit',
+			name: 'editVideo',
+			component: CreateVideoView,
 			meta: {
 				requiredAuth: true,
 			},
